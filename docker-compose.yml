@@ -1,0 +1,42 @@
+# docker compose up
+#
+# Spins up the FastAPI backend (port 8000) and the React frontend served
+# by nginx (port 8080). Both containers read environment from backend/.env.
+# The frontend container proxies /api and /static to the backend, so the
+# browser only ever talks to localhost:8080.
+#
+# Prerequisites:
+#   - backend/.env populated with ES_URL and ES_API_KEY (see .env.example)
+#   - The EIS inference endpoint already created in your Elastic Cloud
+#     deployment (one-time PUT in Kibana Dev Console)
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: findwaldo-backend
+    env_file:
+      - backend/.env
+    volumes:
+      # Persist uploaded full-size images across container restarts
+      - ./backend/static:/app/static
+      # Phase 2: reference target manifest + crops. Mounting (not COPYing)
+      # so crops can be added/edited without rebuilding the image. The
+      # backend reads them at startup; restart the container to pick up
+      # changes to the manifest or crop files.
+      - ./backend/reference_targets:/app/reference_targets
+    ports:
+      - "8200:8000"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: findwaldo-frontend
+    ports:
+      - "8280:80"
+    depends_on:
+      - backend
+    restart: unless-stopped

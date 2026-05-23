@@ -1,0 +1,7 @@
+fastapi==0.115.4
+uvicorn[standard]==0.32.0
+elasticsearch[async]==8.15.1
+pillow==11.0.0
+python-multipart==0.0.17
+pydantic==2.9.2
+aiohttp==3.10.10

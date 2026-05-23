@@ -1,0 +1,54 @@
+# ─── Secrets — NEVER commit ────────────────────────────────────────────
+# Any .env anywhere (root pattern + nested, belt and suspenders)
+.env
+*.env
+**/.env
+!**/.env.example
+backend/.env
+frontend/.env
+# Editor / sed / tooling backups — these can contain copies of secrets
+*.bak
+*.orig
+*~
+.env.*
+!.env.example
+
+# ─── Python ────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# ─── Node / Vite ───────────────────────────────────────────────────────
+node_modules/
+dist/
+.vite/
+*.local
+
+# ─── IDE / OS ──────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ─── Uploaded images + benchmark output (runtime artifacts) ─────────────
+backend/static/*
+!backend/static/.gitkeep
+runs/
+
+# ─── Reference crops (subject imagery; keep manifest, exclude JPGs) ─────
+backend/reference_targets/**/*.jpg
+backend/reference_targets/**/*.jpeg
+backend/reference_targets/**/*.png
+
+# ─── Sales / presentation assets (kept local, not part of the code repo) ─
+deck/
+docs/presentation-script.md
+
+# ─── Diagnostic probe scripts (session scratch, not part of the project) ─
+scripts/probe_*.sh
+scripts/fix_crops_and_restart.sh

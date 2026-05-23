@@ -1,0 +1,90 @@
+{
+  "_comment": "Reference target manifest. Each entry registers a recurring visual subject with its aliases and reference crop file paths. Crop paths are relative to the reference_targets/ directory unless absolute. A target with zero crops on disk is registered (alias matching works, matched_target shows in the response) but inactive (no prototype kNN runs). Drop tight bounding-box crop JPGs of the target into the listed paths to activate.",
+  "targets": [
+    {
+      "target_id":      "waldo",
+      "display_name":   "Waldo",
+      "aliases": [
+        "waldo",
+        "wally",
+        "where's waldo",
+        "wheres waldo",
+        "where is waldo",
+        "find waldo",
+        "find wally",
+        "striped guy",
+        "the striped guy",
+        "man with red and white striped shirt",
+        "guy in red and white stripes",
+        "person in red and white stripes",
+        "man with glasses and hat",
+        "man with glasses and a hat"
+      ],
+      "reference_crops": [
+        "waldo/crop_01.jpg",
+        "waldo/crop_02.jpg",
+        "waldo/crop_03.jpg",
+        "waldo/crop_04.jpg",
+        "waldo/crop_05.jpg"
+      ]
+    },
+    {
+      "target_id":      "odlaw",
+      "display_name":   "Odlaw",
+      "aliases": [
+        "odlaw",
+        "find odlaw",
+        "yellow striped guy",
+        "the yellow striped guy",
+        "man with yellow and black striped shirt",
+        "man with mustache and sunglasses",
+        "the villain"
+      ],
+      "reference_crops": [
+        "odlaw/crop_01.jpg",
+        "odlaw/crop_02.jpg",
+        "odlaw/crop_03.jpg"
+      ]
+    },
+    {
+      "target_id":      "wenda",
+      "display_name":   "Wenda",
+      "aliases": [
+        "wenda",
+        "find wenda",
+        "wanda",
+        "find wanda",
+        "woman with red and white striped shirt",
+        "woman in red and white stripes",
+        "lady with glasses and striped hat"
+      ],
+      "reference_crops": [
+        "wenda/crop_01.jpg",
+        "wenda/crop_02.jpg",
+        "wenda/crop_03.jpg"
+      ]
+    },
+    {
+      "target_id":      "wizard_whitebeard",
+      "display_name":   "Wizard Whitebeard",
+      "aliases": [
+        "wizard",
+        "the wizard",
+        "find the wizard",
+        "wizard whitebeard",
+        "find wizard whitebeard",
+        "whitebeard",
+        "find whitebeard",
+        "old wizard",
+        "wizard with white beard",
+        "man with long white beard",
+        "wizard in red robes"
+      ],
+      "reference_crops": [
+        "wizard_whitebeard/crop_01.jpg",
+        "wizard_whitebeard/crop_02.jpg",
+        "wizard_whitebeard/crop_03.jpg"
+      ]
+    }
+  ]
+}
